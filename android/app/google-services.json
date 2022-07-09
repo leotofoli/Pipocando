@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "504103036355",
+    "project_id": "pipocando-df0c8",
+    "storage_bucket": "pipocando-df0c8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:504103036355:android:0418793da3dfac00ecc976",
+        "android_client_info": {
+          "package_name": "br.com.fiap.pipocando"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "504103036355-3k5vgp4gklmu6ncgv1nspd15hcvpvpvs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAGSOezFdVB_vbD67pVAQAWrzq1SfbrINA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "504103036355-3k5vgp4gklmu6ncgv1nspd15hcvpvpvs.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

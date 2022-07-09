@@ -19,7 +19,7 @@ class MovieRepository {
     } on DioError catch (error) {
       if (error.response != null) {
         return Left(
-            MovieRepositoryError(error.response.data['status_message']));
+            MovieRepositoryError(error.response?.data['status_message']));
       } else {
         return Left(MovieRepositoryError(kServerError));
       }
@@ -36,7 +36,7 @@ class MovieRepository {
     } on DioError catch (error) {
       if (error.response != null) {
         return Left(
-            MovieRepositoryError(error.response.data['status_message']));
+            MovieRepositoryError(error.response?.data['status_message']));
       } else {
         return Left(MovieRepositoryError(kServerError));
       }
