@@ -3,6 +3,7 @@ import 'package:pipocando/pages/login_page.dart';
 import 'package:pipocando/pages/movie_page.dart';
 import 'package:pipocando/services/auth_service.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 
 class AuthCheck extends StatefulWidget {
   AuthCheck({Key? key}) : super(key: key);

@@ -14,7 +14,10 @@ A composição da nota será:
 - 20% - Testes
 - 10% - Documentação
 
-
+git add .
+git commit
+git branch -M main
+git push -u origin main
 # pipocando
 
 A new Flutter project.
