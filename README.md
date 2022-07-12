@@ -1,40 +1,95 @@
-- Tela de Login e Cadastro separadas. O app deve ter uma tela de Splash também, nessa tela deve ser verificado se o usuário já realizou o login, caso já tenha feito o login, redirecionar diretamente para a home da aplicação
-- Integração com banco de dados do Firebase ou consumo de alguma API (pode ser os dois). Dica: https://www.themoviedb.org/.
-- Presença de listagem de informações (ListView)
-- Código legível seguindo o modelo de arquitetura limpa (podem utilizar como guia o projeto apresentado em aula).
-- Documentação com informações gerais sobre a aplicação, objetivo do projeto e instruções para testar o projeto (se necessário)
-- Testes automatizados
+Este projeto, seguirá o modelo MVC (Model-View-Controller) de desenvolvimento.
 
-A composição da nota será:
-- 10% - Layout da aplicação foi bem trabalhado?
-- 15% - Tela de Login e Cadastro
-- 15% - Integração com Firebase/API
-- 15% - ListView
-- 15% - Arquitetura
-- 20% - Testes
-- 10% - Documentação
+Sobre as dependências que utilizamos:
+<ul>
+  <li>dartz: para utilizar programação funcional com Dart;/li>
+  <li>dio: cliente HTTP para Dart, que suporta Interceptors, FormData, Cancelamento de Solicitação, Download de Arquivo, Tempo Limite, etc. </li>
+  <li>intl: contém código para lidar com mensagens internacionalizadas / localizadas, formatação e análise de data e número, texto bidirecional e outros      problemas de internacionalização.</li>
+  <li>provider:Um wrapper em torno de InheritedWidget para torná-los mais fáceis de usar e mais reutilizáveis.</li>
+  <li>path_provider:Um wrapper em torno de InheritedWidget para torná-los mais fáceis de usar e mais reutilizáveis.</li>
+  <li>firebase_core:Um plug-in do Flutter para usar a Firebase Core API, que permite a conexão com vários aplicativos do Firebase.</li>
+  <li>firebase_auth:Um plug-in Flutter para usar a API Firebase Authentication.</li>
+  <li>flutter_native_splash:Um gerador automatico de splash screen.</li>
+</ul>
 
-git add .
-git commit
-git branch -M main
-git push -u origin main
-# pipocando
+<h3>MovieRepository</h3>
 
-A new Flutter project.
+Servirá para se conectar na API do TMDb utilizando dio e converter a resposta em JSON para um objeto (model).
+<ul>
+  <li>Toda comunicação com serviços (Banco de Dados, APIs, Arquivos, etc) utilizam métodos assíncronos. </li>
+  <li>Outro detalhe importante é a parte de tratamento de erros, para isso, usamos try/catch;</li>
+  <li>Para finalizar, observe o uso de Either para retornar o objeto correto ou um erro;</li>
+</ul>
 
-## Getting Started
+<h3>MovieController</h3>
 
-This project is a starting point for a Flutter application.
+O método fetchAllMovies, não sobrescreve a lista de filmes, ele simplesmente adiciona:
+<ul>
+  <li>moviesResponseModel.movies.addAll(movie.movies);</li>
+</ul>
 
-A few resources to get you started if this is your first Flutter project:
+Com isso, é possível criar uma lista infinita.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+<h3>MovieDetailController</h3>
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Irá fazer o controle dos detalhes dos filmes
 
+<h3>CenteredMessage</h3>
 
+Apresentará um Container para exibir uma mensagem e ícone no centro
 
+<h3>CenteredProgress</h3>
 
+Apresentará um Container para exibir um circulo animado que indica o progresso do carregamento
+
+<h3>MovieCard</h3>
+
+Apresentará um Container para exibir uma imagem do pôster do filme. Essa imagem é acessada em:
+<ul>
+  <li>url base: https://image.tmdb.org/t/p/w220_and_h330_face/IMAGEM</li>
+</ul>
+
+<h3>Constant</h3>
+
+Guarda as constantes utilizada no aplicativo.
+
+<h3>ChipDate</h3>
+
+Vai apresentar um Chip customizado com um ícone de calendário para exibir a data de lançamento do filme.
+
+<h3>Rate</h3>
+
+Vai apresentar uma Row com 2 widgets (Icon e Text) com um ícone de coraçao vermelho e a nota que o filme recebeu até o momento.
+
+<h3>MoviePage</h3>
+
+A lista de filmes.
+<ul>
+  <li>Na inicialização da página (initState) é chamado o método fetchAllMovie();</li>
+  <li>Durante o carregamento uma tela de loading é exibida;</li>
+  <li>Caso, algum erro tenha acontecido (por exemplo: falta de internet), uma mensagem de erro é exibida no centro da página;</li>
+  <li>O método _initScrollListener configura um Observer para escutar a rolagem da tela, e sempre que a tela chegar no final, é pedido mais filmes para API. Este processo garante uma rolagem infinitas pelos filmes existentes.</li>
+  <li>Quando você clicar no pôster do filme, é chamado a tela de detalhes passando o id do filme (método _openDetailPage).</li>
+</ul>
+
+<h3>MovieDetailPage</h3>
+
+Definirá a página de detalhes de um filme.
+<ul>
+<li>Passaremos o id do filme selecionado no construtor da página;</li>
+<li>Na inicialização da página é chamado o método fetchMoviebyId();</li>
+<li>Durante o carregamento uma tela de loading é exibida;</li>
+<li>Caso, algum erro tenha acontecido (por exemplo: falta de internet), uma mensagem de erro é exibida no centro da página;</li>
+</ul>
+
+<h3>AuthCheck</h3>
+  Widget que valida se o usuário já realizou o login, caso tenha realizado o app irá redirecionar para a MoviePage, caso o contrario para a tela de login
+  
+<h3>AuthService</h3>
+  Serviço de integração com o FireBase com as seguintes responsabilidades:
+  <ul>
+    <li>Autenticar o usuario</li>
+    <li>Buscar por um usuario em específico</li>
+    <li>Cadastrar o usuário</li>
+    <li>Realizar o login</li>
+  </ul>
