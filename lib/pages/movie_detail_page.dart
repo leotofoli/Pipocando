@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:pipocando/widgets/chip_companies.dart';
+import 'package:pipocando/widgets/chip_genres.dart';
+import 'package:pipocando/widgets/chip_language.dart';
 
 import '../controllers/movie_detail_controller.dart';
 import '../widgets/centered_message.dart';
@@ -63,8 +66,33 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
       children: [
         _buildCover(),
         _buildStatus(),
+        _buildGenres(),
+        _buildCompanies(),
         _buildOverview(),
       ],
+    );
+  }
+  _buildCompanies() {
+    return Container(
+      padding: const EdgeInsets.all(10.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          ChipCompanies(companies: _controller.movieDetail!.productionCompanies)
+        ],
+      ),
+    );
+  }
+
+  _buildGenres() {
+    return Container(
+      padding: const EdgeInsets.all(10.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          ChipGenre(genres: _controller.movieDetail!.genres)
+        ],
+      ),
     );
   }
 
@@ -86,7 +114,8 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Rate(_controller.movieDetail!.voteAverage),
-          ChipDate(date: _controller.movieDetail!.releaseDate),
+          ChipLanguage(language: _controller.movieDetail!.originalLanguage),
+          ChipDate(date: _controller.movieDetail!.releaseDate)
         ],
       ),
     );
