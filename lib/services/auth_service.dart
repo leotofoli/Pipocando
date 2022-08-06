@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 class AuthException implements Exception {
   String message;
+
   AuthException(this.message);
 }
 

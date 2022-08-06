@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
-import 'package:pipocando/core/constant.dart';
 import 'package:pipocando/models/movie_genre.dart';
+import 'package:pipocando/models/production_company_model.dart';
 
-import '../core/constant.dart';
+import '../../utils/core/constant.dart';
 
-class ChipGenre extends StatelessWidget {
-  final List<MovieGenre> genres;
+class ChipCompanies extends StatelessWidget {
+  final List<ProductionCompanyModel> companies;
   final Color color;
 
-  const ChipGenre({
+  const ChipCompanies({
     Key? key,
-    required this.genres,
+    required this.companies,
     this.color = Colors.red,
   }) : super(key: key);
 
@@ -23,13 +22,13 @@ class ChipGenre extends StatelessWidget {
       avatar: const CircleAvatar(
         backgroundColor: Colors.transparent,
         child: Icon(
-          Icons.camera_roll_outlined,
+          Icons.movie,
           size: 18,
           color: Colors.white,
         ),
       ),
       label: Text(
-        genres.map((e) => (e.name)).toString().replaceAll("(", "").replaceAll(")", ""),
+        companies.first.name,
         textAlign: TextAlign.end,
         style: const TextStyle(
           fontSize: 18,

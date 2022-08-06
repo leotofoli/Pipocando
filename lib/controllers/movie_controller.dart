@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
 
-import '../errors/movie_error.dart';
+import '../utils/errors/movie_error.dart';
 import '../models/movie_model.dart';
 import '../models/movie_response_model.dart';
 import '../repositories/movie_repository.dart';
@@ -13,9 +13,13 @@ class MovieController {
   bool loading = true;
 
   List<MovieModel> get movies => movieResponseModel?.movies ?? <MovieModel>[];
+
   int get moviesCount => movies.length;
+
   bool get hasMovies => moviesCount != 0;
+
   int get totalPages => movieResponseModel?.totalPages ?? 1;
+
   int get currentPage => movieResponseModel?.page ?? 1;
 
   Future<Either<MovieError, MovieResponseModel>> fetchAllMovies(
@@ -23,8 +27,8 @@ class MovieController {
     movieError = null;
     final result = await _repository.fetchAllMovies(page);
     result.fold(
-          (error) => movieError = error,
-          (movie) {
+      (error) => movieError = error,
+      (movie) {
         if (movieResponseModel == null) {
           movieResponseModel = movie;
         } else {

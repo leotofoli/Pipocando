@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:pipocando/widgets/chip_companies.dart';
-import 'package:pipocando/widgets/chip_genres.dart';
-import 'package:pipocando/widgets/chip_language.dart';
+import 'package:pipocando/views/widgets/chip_companies.dart';
+import 'package:pipocando/views/widgets/chip_genres.dart';
+import 'package:pipocando/views/widgets/chip_language.dart';
 
-import '../controllers/movie_detail_controller.dart';
-import '../widgets/centered_message.dart';
-import '../widgets/centered_progress.dart';
-import '../widgets/chip_date.dart';
-import '../widgets/rate.dart';
+import '../../controllers/movie_detail_controller.dart';
+import '../../views/widgets/centered_message.dart';
+import '../../views/widgets/centered_progress.dart';
+import '../../views/widgets/chip_date.dart';
+import '../../views/widgets/rate.dart';
 
 class MovieDetailPage extends StatefulWidget {
   final int movieId;
@@ -72,6 +72,7 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
       ],
     );
   }
+
   _buildCompanies() {
     return Container(
       padding: const EdgeInsets.all(10.0),

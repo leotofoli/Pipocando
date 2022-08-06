@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
 
-import '../errors/movie_error.dart';
+import '../utils/errors/movie_error.dart';
 import '../models/movie_detail_model.dart';
 import '../repositories/movie_repository.dart';
 
@@ -16,8 +16,8 @@ class MovieDetailController {
     movieError = null;
     final result = await _repository.fetchMovieById(id);
     result.fold(
-          (error) => movieError = error,
-          (detail) => movieDetail = detail,
+      (error) => movieError = error,
+      (detail) => movieDetail = detail,
     );
     return result;
   }

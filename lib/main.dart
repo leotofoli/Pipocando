@@ -1,9 +1,9 @@
-import 'package:pipocando/widgets/auth_check.dart';
+import 'package:pipocando/views/widgets/auth_check.dart';
 
-import 'core/constant.dart';
-import 'core/theme_app.dart';
-import 'pages/movie_page.dart';
-import 'package:pipocando/core/constant.dart';
+import 'utils/core/constant.dart';
+import 'utils/core/theme_app.dart';
+import 'views/pages/movie_page.dart';
+import 'package:pipocando/utils/core/constant.dart';
 import 'package:pipocando/services/auth_service.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -19,17 +19,13 @@ void main() async {
 
   runApp(
     MultiProvider(
-    providers: [
-      ChangeNotifierProvider(create: (context) => AuthService())
-    ],
-    child: MyApp(),
-  ),
+      providers: [ChangeNotifierProvider(create: (context) => AuthService())],
+      child: MyApp(),
+    ),
   );
   sleep(const Duration(seconds: 1));
   FlutterNativeSplash.remove();
 }
-
-
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);

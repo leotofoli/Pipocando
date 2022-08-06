@@ -13,7 +13,7 @@ class MovieGenre {
       MovieGenre.fromMap(json.decode(str));
 
   factory MovieGenre.fromMap(Map<String, dynamic> json) => MovieGenre(
-    id: json["id"],
-    name: json["name"],
-  );
+        id: json["id"],
+        name: json["name"],
+      );
 }

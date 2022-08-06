@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:pipocando/models/movie_genre.dart';
-import 'package:pipocando/models/production_company_model.dart';
+import 'package:intl/intl.dart';
+import 'package:pipocando/utils/core/constant.dart';
 
-import '../core/constant.dart';
+import '../../utils/core/constant.dart';
 
-class ChipCompanies extends StatelessWidget {
-  final List<ProductionCompanyModel> companies;
+class ChipDate extends StatelessWidget {
+  final DateTime date;
   final Color color;
+  final String dateFormat;
 
-  const ChipCompanies({
+  const ChipDate({
     Key? key,
-    required this.companies,
+    required this.date,
     this.color = Colors.red,
+    this.dateFormat = kDateFormat,
   }) : super(key: key);
 
   @override
@@ -22,13 +24,13 @@ class ChipCompanies extends StatelessWidget {
       avatar: const CircleAvatar(
         backgroundColor: Colors.transparent,
         child: Icon(
-          Icons.movie,
+          Icons.calendar_today,
           size: 18,
           color: Colors.white,
         ),
       ),
       label: Text(
-        companies.first.name,
+        DateFormat(dateFormat).format(date),
         textAlign: TextAlign.end,
         style: const TextStyle(
           fontSize: 18,

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pipocando/pages/login_page.dart';
-import 'package:pipocando/pages/movie_page.dart';
+import 'package:pipocando/views/pages/login_page.dart';
+import 'package:pipocando/views/pages/movie_page.dart';
 import 'package:pipocando/services/auth_service.dart';
 import 'package:provider/provider.dart';
 
@@ -30,10 +30,9 @@ class _RegisterPageState extends State<RegisterPage> {
 
   setFormAction() {
     setState(() {
-        titulo = 'Crie sua conta';
-        actionButton = 'Cadastrar';
-        toggleButton = 'Voltar ao Login.';
-
+      titulo = 'Crie sua conta';
+      actionButton = 'Cadastrar';
+      toggleButton = 'Voltar ao Login.';
     });
   }
 
@@ -47,6 +46,7 @@ class _RegisterPageState extends State<RegisterPage> {
           .showSnackBar(SnackBar(content: Text(e.message)));
     }
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -85,7 +85,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 ),
                 Padding(
                   padding:
-                  EdgeInsets.symmetric(vertical: 12.0, horizontal: 24.0),
+                      EdgeInsets.symmetric(vertical: 12.0, horizontal: 24.0),
                   child: TextFormField(
                     controller: senha,
                     obscureText: true,
@@ -108,40 +108,44 @@ class _RegisterPageState extends State<RegisterPage> {
                   child: ElevatedButton(
                     onPressed: () {
                       if (formKey.currentState!.validate()) {
-                          registrar();
-                          Navigator.push(context, MaterialPageRoute(builder: (context) => MoviePage()));
-                        }
+                        registrar();
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => MoviePage()));
+                      }
                     },
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: (loading)
                           ? [
-                        Padding(
-                          padding: EdgeInsets.all(16),
-                          child: SizedBox(
-                            width: 24,
-                            height: 24,
-                            child: CircularProgressIndicator(
-                              color: Colors.white,
-                            ),
-                          ),
-                        )
-                      ]
+                              Padding(
+                                padding: EdgeInsets.all(16),
+                                child: SizedBox(
+                                  width: 24,
+                                  height: 24,
+                                  child: CircularProgressIndicator(
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              )
+                            ]
                           : [
-                        Icon(Icons.check),
-                        Padding(
-                          padding: EdgeInsets.all(16.0),
-                          child: Text(
-                            actionButton,
-                            style: TextStyle(fontSize: 20),
-                          ),
-                        ),
-                      ],
+                              Icon(Icons.check),
+                              Padding(
+                                padding: EdgeInsets.all(16.0),
+                                child: Text(
+                                  actionButton,
+                                  style: TextStyle(fontSize: 20),
+                                ),
+                              ),
+                            ],
                     ),
                   ),
                 ),
                 TextButton(
-                  onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage())),
+                  onPressed: () => Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => LoginPage())),
                   child: Text(toggleButton),
                 ),
               ],

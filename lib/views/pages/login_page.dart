@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pipocando/pages/register_page.dart';
+import 'package:pipocando/views/pages/register_page.dart';
 import 'package:pipocando/services/auth_service.dart';
 import 'package:provider/provider.dart';
 
@@ -28,9 +28,9 @@ class _LoginPageState extends State<LoginPage> {
 
   setFormAction() {
     setState(() {
-        titulo = 'Bem vindo';
-        actionButton = 'Login';
-        toggleButton = 'Ainda não tem conta? Cadastre-se agora.';
+      titulo = 'Bem vindo';
+      actionButton = 'Login';
+      toggleButton = 'Ainda não tem conta? Cadastre-se agora.';
     });
   }
 
@@ -83,7 +83,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 Padding(
                   padding:
-                  EdgeInsets.symmetric(vertical: 12.0, horizontal: 24.0),
+                      EdgeInsets.symmetric(vertical: 12.0, horizontal: 24.0),
                   child: TextFormField(
                     controller: senha,
                     obscureText: true,
@@ -106,39 +106,40 @@ class _LoginPageState extends State<LoginPage> {
                   child: ElevatedButton(
                     onPressed: () {
                       if (formKey.currentState!.validate()) {
-                          login();
+                        login();
                       }
                     },
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: (loading)
                           ? [
-                        Padding(
-                          padding: EdgeInsets.all(16),
-                          child: SizedBox(
-                            width: 24,
-                            height: 24,
-                            child: CircularProgressIndicator(
-                              color: Colors.white,
-                            ),
-                          ),
-                        )
-                      ]
+                              Padding(
+                                padding: EdgeInsets.all(16),
+                                child: SizedBox(
+                                  width: 24,
+                                  height: 24,
+                                  child: CircularProgressIndicator(
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              )
+                            ]
                           : [
-                        Icon(Icons.check),
-                        Padding(
-                          padding: EdgeInsets.all(16.0),
-                          child: Text(
-                            actionButton,
-                            style: TextStyle(fontSize: 20),
-                          ),
-                        ),
-                      ],
+                              Icon(Icons.check),
+                              Padding(
+                                padding: EdgeInsets.all(16.0),
+                                child: Text(
+                                  actionButton,
+                                  style: TextStyle(fontSize: 20),
+                                ),
+                              ),
+                            ],
                     ),
                   ),
                 ),
                 TextButton(
-                  onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => RegisterPage())),
+                  onPressed: () => Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => RegisterPage())),
                   child: Text(toggleButton),
                 ),
               ],

@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:pipocando/errors/movie_error.dart';
+import 'package:pipocando/utils/errors/movie_error.dart';
 import 'package:pipocando/models/movie_response_model.dart';
 import 'package:pipocando/repositories/movie_repository.dart';
 import 'package:pipocando/models/movie_detail_model.dart';

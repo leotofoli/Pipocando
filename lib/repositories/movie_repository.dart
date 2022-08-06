@@ -1,9 +1,9 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
-import 'package:pipocando/core/api.dart';
+import 'package:pipocando/utils/core/api.dart';
 
-import '../core/api.dart';
-import '../errors/movie_error.dart';
+import '../utils/core/api.dart';
+import '../utils/errors/movie_error.dart';
 import '../models/movie_detail_model.dart';
 import '../models/movie_response_model.dart';
 
@@ -18,8 +18,7 @@ class MovieRepository {
       return Right(model);
     } on DioError catch (error) {
       if (error.response != null) {
-        return Left(
-            MovieRepositoryError(error.response?.data['errors'][0]));
+        return Left(MovieRepositoryError(error.response?.data['errors'][0]));
       } else {
         return Left(MovieRepositoryError(kServerError));
       }

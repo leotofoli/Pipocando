@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:pipocando/core/constant.dart';
+import 'package:pipocando/utils/core/constant.dart';
+import 'package:pipocando/models/movie_genre.dart';
 
-import '../core/constant.dart';
+import '../../utils/core/constant.dart';
 
-class ChipLanguage extends StatelessWidget {
-  final String language;
+class ChipGenre extends StatelessWidget {
+  final List<MovieGenre> genres;
   final Color color;
 
-  const ChipLanguage({
+  const ChipGenre({
     Key? key,
-    required this.language,
-    this.color = Colors.red
+    required this.genres,
+    this.color = Colors.red,
   }) : super(key: key);
 
   @override
@@ -22,13 +23,17 @@ class ChipLanguage extends StatelessWidget {
       avatar: const CircleAvatar(
         backgroundColor: Colors.transparent,
         child: Icon(
-          Icons.language,
+          Icons.camera_roll_outlined,
           size: 18,
           color: Colors.white,
         ),
       ),
       label: Text(
-        language.toUpperCase(),
+        genres
+            .map((e) => (e.name))
+            .toString()
+            .replaceAll("(", "")
+            .replaceAll(")", ""),
         textAlign: TextAlign.end,
         style: const TextStyle(
           fontSize: 18,
