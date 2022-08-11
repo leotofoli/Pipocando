@@ -56,6 +56,8 @@ dev_dependencies:
   mocktail: ^0.3.0
   network_image_mock: ^2.1.0
   http_mock_adapter:
+  mockito:
+  rxdart:
 
 
 # For information on the generic Dart part of this file, see the
