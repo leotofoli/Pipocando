@@ -1,8 +1,13 @@
+Imagens:
+
+<img src="https://user-images.githubusercontent.com/86728742/184254358-2ff83ac5-9cb3-4e07-898f-e417d391e03b.jpeg" width="200" height="400" /><img src="https://user-images.githubusercontent.com/86728742/184254466-1d95ee9d-7e1a-4e28-b14b-56597f95ee8f.jpeg" width="200" height="400" /><img src="https://user-images.githubusercontent.com/86728742/184254472-ce322add-3b32-4aee-8e03-44dd571938e8.jpeg" width="200" height="400" /><img src="https://user-images.githubusercontent.com/86728742/184255519-7fad649f-33b6-4ef3-a859-1b099f527db6.jpeg" width="200" height="400" /><img src="https://user-images.githubusercontent.com/86728742/184254477-64d0f6c2-9830-462d-8f84-ca8c5f3d4c71.jpeg" width="200" height="400" />
+
+
 Este projeto, seguirá o modelo MVC (Model-View-Controller) de desenvolvimento.
 
 Sobre as dependências que utilizamos:
 <ul>
-  <li>dartz: para utilizar programação funcional com Dart;/li>
+  <li>dartz: para utilizar programação funcional com Dart.</li>
   <li>dio: cliente HTTP para Dart, que suporta Interceptors, FormData, Cancelamento de Solicitação, Download de Arquivo, Tempo Limite, etc. </li>
   <li>intl: contém código para lidar com mensagens internacionalizadas / localizadas, formatação e análise de data e número, texto bidirecional e outros      problemas de internacionalização.</li>
   <li>provider:Um wrapper em torno de InheritedWidget para torná-los mais fáceis de usar e mais reutilizáveis.</li>
